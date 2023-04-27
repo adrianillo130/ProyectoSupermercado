@@ -26,7 +26,7 @@ const giveMeAccessKey = async () => {
     }
     })*/
 
-    let input = 'milk';
+    let input = 'shampoo';        
     const productsUrl = `https://api.kroger.com/v1/products?filter.term=${input}&filter.locationId=01400943`; // cambiar el term "milk" por el producto deseado (variable?)
     const accessToken = await giveMeAccessKey();
     const productsResponse = fetch(productsUrl, {
@@ -39,7 +39,8 @@ const giveMeAccessKey = async () => {
     })
       .then((response) => response.json())
       .then((dataApi) => {
-        let productosArray = dataApi.data;
+        console.log(dataApi)
+        let productosArray = dataApi.data;      //ARRAY CON LOS PRODUCTOS//
         pintarCard(productosArray);
       })
       .catch((error) => {
