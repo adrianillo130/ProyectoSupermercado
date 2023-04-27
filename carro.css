@@ -1,0 +1,142 @@
+body{
+    margin: 0%;
+}
+
+.navbar{
+    
+    top: 0;
+    width: 100%;
+    background-color: #9CE0DB;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.login{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.button{
+    background-color: #9CE0DB;
+    border: none;
+    font-size: 20px;
+    width: 200px;
+    border-radius: 20px;
+    margin: 2% 5% 2% 5%;
+    padding: 10px;
+    z-index: 1;
+}
+
+.button:hover{
+    background-color: #338B85;
+}
+
+.nav-logo{
+    font-weight: bold;
+    z-index: 2;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.nav-items{
+    text-decoration: none;
+    position: absolute;
+    font-size: 20px;
+    top: 60px;
+    right: 0;
+    background-color: #5DC1B9;
+    height: auto;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    margin-right: 30px;
+    z-index: -1;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 340px;
+}
+
+.itemsList{
+    margin-left: 30px;
+    z-index: 1;
+}
+
+.nav-toggle{
+    display: flex !important;
+    flex-direction: column;
+    margin: 15px;
+    z-index: 0;
+}
+.nav-toggle span{
+    width: 30px;
+    height: 4px;
+    background-color: aqua;
+    flex-direction: column;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    z-index: 0;
+}
+.span{
+    background-color: aqua;
+}
+.open{
+    transform: translateX(0) !important;
+    z-index: 0;
+    
+}
+
+.hr{
+    border-color: #338B85;
+    border-radius: 5px;
+    width: 80%;
+    z-index: 0;
+}
+
+/* ---------------------------------------------*/
+
+@charset "utf-8";
+.tarjeta{
+  display:flex;
+  background-color: white;
+  justify-content:space-between;
+  width:420px;
+  border: none;
+  box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+  border-radius:15px;
+  font-family: sans-serif;
+}
+.img{
+    border: 1px solid lightgray;
+}
+.titulo{
+  font-size: 24px;
+  padding: 10px 10px 0 10px;;
+}
+.cuerpo{
+  padding: 10px;
+}
+.pie{
+  background: #6699ff;
+  border-radius:0 0 15px 15px;
+  padding: 10px;
+  text-align:center;
+}
+.pie a{
+  text-decoration: none;
+  color: white;
+}
+.pie a:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: ""
+}
