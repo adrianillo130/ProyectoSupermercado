@@ -1,5 +1,66 @@
 .containerNavbarPC{
     display: flex;
     align-items: start;
+    background-color: #9CE0DB;
+    justify-content: space-around;
+    align-items: center;
+}
+.categoryButton{
+    background-color: #9CE0DB;
+    border: none;
     
+
+}
+.logo{
+    max-width: 20%;
+    max-height: 30vh;
+}
+
+input.searchBar{
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    
+}
+.userIcon{
+    background-color: #9CE0DB;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.basketIcon{
+    background-color: #9CE0DB;
+    border: none;
+    display: flex;
+}
+
+
+.sectionSliderH{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    
+}
+.imageSliderH{
+    border-radius: 50px;
+    margin-bottom: 5%;
+}
+
+.sliderButtonsImg{
+    display: flex;
+    margin-bottom: 3%;
+}
+.sliderButtons{
+    border-radius: 80px;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    background-color: #5DC1B9;
+    border: none;
+}
+.containerCard{
+    display: flex;
 }
