@@ -4,34 +4,4 @@ document.getElementsByClassName("sectionFP-name")
 sectionFPName.innerHTML = "Rebajas temporales"
 const containercard = document.createElement("div")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    console.log(FeaturedProducts)
+console.log(FeaturedProducts)
