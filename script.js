@@ -11,18 +11,18 @@ const giveMeAccessKey = async () => {
     }).then((response) => response.json());
     //console.log(res)
     return res.access_token;
-  };
-  
-
-  // --------------------------ESTO SERÍA UNA FUNCIÓN? -----------------------------------------------------
+};
 
 
-  const giveMeProducts = async () => {
+// --------------------------ESTO SERÍA UNA FUNCIÓN? -----------------------------------------------------
+
+
+const giveMeProducts = async () => {
     /*esto es para que 
     let input = document.getElementById('searchBar').value; // .value recoge el valor del html supuestamente
     input.addEventListener('keyup' , (event) => {
-      if (event.which === 13) {
-        $("#submit").click();
+    if (event.which === 13) {
+        $("#submit").click(
     }
     })*/
 
@@ -37,42 +37,41 @@ const giveMeAccessKey = async () => {
             "Content-Type": "application/json; charset=utf-8",
         },
     })
-      .then((response) => response.json())
-      .then((dataApi) => {
-        console.log(dataApi)
-        let productosArray = dataApi.data;      //ARRAY CON LOS PRODUCTOS//
-        pintarCard(productosArray);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+        .then((response) => response.json())
+        .then((dataApi) => {
+            let productosArray = dataApi.data;
+            pintarCard(productosArray);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+};
 
-  giveMeProducts();
+giveMeProducts();
 
 /*--------------PRUEBA DE PINTAR PRODUCTOS EN EL HTML------------------*/
 
 const pintarCard = productosArray => {
-  const setionNews = document.getElementById('sectionNews')
-  const h2News = document.createElement('h2')
-  h2News.innerHTML = 'Novedades'
-  sectionNews.appendChild(h2News)
-  
-  console.log(productosArray)
-  
-  productosArray.forEach(product => {
-    
-    const cardProduct = document.createElement('div');
-    cardProduct.classList.add('cardProduct')
-    cardProduct.innerHTML = `
+    const setionNews = document.getElementById('sectionNews')
+    const h2News = document.createElement('h2')
+    h2News.innerHTML = 'Novedades'
+    sectionNews.appendChild(h2News)
+
+    console.log(productosArray)
+
+    productosArray.forEach(product => {
+
+        const cardProduct = document.createElement('div');
+        cardProduct.classList.add('cardProduct')
+        cardProduct.innerHTML = `
                     <img src="${product.images}" class="productImage">
                     <h3 class="productNaming">${product.brand}</h3>
                     <p class="productSpecification">${product.description}</p>
                     <p class="productPrice">${product.items[0].price.regular}</p>
                     <button class="plusBasketButton" id="plusBasketButton">Añadir a la Cesta</button>` // este botón debería de ejecutar la función añadir a la cesta
-    sectionNews.appendChild(cardProduct)
-  });
-  //console.log(setionNews)
+        sectionNews.appendChild(cardProduct)
+    });
+    //console.log(setionNews)
 }
 
 
