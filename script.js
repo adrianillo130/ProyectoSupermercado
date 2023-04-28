@@ -89,7 +89,7 @@ function actualizarBotonesAgregar(){
   })
 }
 
-const productosEnCarrito = [];
+/* const productosEnCarrito = [];
 
 function agregarAlCarrito(e) {
   const idButton = e.currentTarget.id
@@ -98,4 +98,21 @@ function agregarAlCarrito(e) {
   console.log(productoAgregado)
 }
 
-console.log(productosEnCarrito)
+console.log(productosEnCarrito) */
+
+const productosEnCarrito = [];
+
+function agregarAlCarrito(e) {
+  const idButton = e.currentTarget.id;
+  const productoAgregado = productosArray.find(producto => producto.productId === idButton);
+
+  const productoEnCarrito = productosEnCarrito.find(producto => producto.productId === productoAgregado.productId);
+
+  if (productoEnCarrito) {
+    productoEnCarrito.cantidad++;
+  } else {
+    productosEnCarrito.push({ ...productoAgregado, cantidad: 1 });
+  }
+
+  console.log(productosEnCarrito);
+}
