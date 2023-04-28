@@ -116,3 +116,4 @@ function agregarAlCarrito(e) {
 
   console.log(productosEnCarrito);
 }
+
