@@ -11,17 +11,17 @@ const giveMeAccessKey = async () => {
     }).then((response) => response.json());
     console.log(res)
     return res.access_token;
-  };
-  
-
-  // --------------------------ESTO SERÍA UNA FUNCIÓN? -----------------------------------------------------
+};
 
 
-  const giveMeProducts = async () => {
+// --------------------------ESTO SERÍA UNA FUNCIÓN? -----------------------------------------------------
+
+
+const giveMeProducts = async () => {
     /*esto es para que 
     let input = document.getElementById('searchBar').value; // .value recoge el valor del html supuestamente
     input.addEventListener('keyup' , (event) => {
-      if (event.which === 13) {
+    if (event.which === 13) {
         $("#submit").click();
     }
     })*/
@@ -37,6 +37,7 @@ const giveMeAccessKey = async () => {
             "Content-Type": "application/json; charset=utf-8",
         },
     })
+<<<<<<< HEAD
       .then((response) => response.json())
       .then((dataApi) => {
         console.log(dataApi)
@@ -47,8 +48,19 @@ const giveMeAccessKey = async () => {
         console.error("Error:", error);
       });
   };
+=======
+        .then((response) => response.json())
+        .then((dataApi) => {
+            let productosArray = dataApi.data;
+            pintarCard(productosArray);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+};
+>>>>>>> b6c753cdb888488efd882e7d3a8f9e3aa46b287d
 
-  giveMeProducts();
+giveMeProducts();
 
 /*--------------PRUEBA DE PINTAR PRODUCTOS EN EL HTML------------------*/
 
