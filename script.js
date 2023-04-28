@@ -98,4 +98,4 @@ function agregarAlCarrito(e) {
   console.log(productoAgregado)
 }
 
-console.log(productosEnCarrito)
+console.log(productosEnCarrito);
