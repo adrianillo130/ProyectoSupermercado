@@ -52,7 +52,7 @@ giveMeProducts();
 /*--------------PRUEBA DE PINTAR PRODUCTOS EN EL HTML------------------*/
 
 const pintarCard = productosArray => {
-    const setionNews = document.getElementById('sectionNews')
+    const sectionNews = document.getElementById('sectionNews')
     const h2News = document.createElement('h2')
     h2News.innerHTML = 'Novedades'
     let buttonAdd = document.getElementById('plusBasketButton')
@@ -79,3 +79,23 @@ const pintarCard = productosArray => {
 }
 
 
+
+
+function actualizarBotonesAgregar() {
+    botonesAgregar = document.querySelectorAll('.plusBasketButton')
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', agregarAlCarrito);
+    })
+}
+
+const productosEnCarrito = [];
+
+function agregarAlCarrito(e) {
+    const idButton = e.currentTarget.id
+    //console.log(idButton)
+    const productoAgregado = productosArray.find(productosArray => productosArray.productId === idButton);
+    console.log(productoAgregado)
+}
+
+console.log(productosEnCarrito);
