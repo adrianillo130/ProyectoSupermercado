@@ -76,7 +76,7 @@ const pintarCard = productosArray => {
                     </div>` // este botón debería de ejecutar la función añadir a la cesta
     sectionNews.appendChild(cardProduct)
   });
-  console.log(setionNews)
+  console.log(sectionNews)
   
 }
 
