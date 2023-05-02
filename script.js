@@ -26,7 +26,7 @@ const giveMeProducts = async () => {
     }
     })*/
 
-    let input = 'milk';
+    let input = 'cereals';
     const productsUrl = `https://api.kroger.com/v1/products?filter.term=${input}&filter.locationId=01400943`; // cambiar el term "milk" por el producto deseado (variable?)
     const accessToken = await giveMeAccessKey();
     const productsResponse = fetch(productsUrl, {
@@ -37,48 +37,48 @@ const giveMeProducts = async () => {
             "Content-Type": "application/json; charset=utf-8",
         },
     })
-      .then((response) => response.json())
-      .then((dataApi) => {
-        productosArray = dataApi.data ;
-        pintarCard(productosArray);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+        .then((response) => response.json())
+        .then((dataApi) => {
+            productosArray = dataApi.data;
+            pintarCard(productosArray);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+};
 
 giveMeProducts();
 
 /*--------------PRUEBA DE PINTAR PRODUCTOS EN EL HTML------------------*/
 
 const pintarCard = productosArray => {
-  const setionNews = document.getElementById('sectionNews')
-  const h2News = document.createElement('h2')
-  h2News.innerHTML = 'Novedades'
-  let buttonAdd = document.getElementById('plusBasketButton')
-  sectionNews.appendChild(h2News)
-  let botonesAgregar = document.querySelectorAll('.plusBasketButton')
+    const sectionNews = document.getElementById('sectionNews')
+    const h2News = document.createElement('h2')
+    h2News.innerHTML = 'Novedades'
+    let buttonAdd = document.getElementById('plusBasketButton')
+    sectionNews.appendChild(h2News)
+    let botonesAgregar = document.querySelectorAll('.plusBasketButton')
 
-  console.log(productosArray)
-  
-  productosArray.forEach(product => {
-    
-    const cardProduct = document.createElement('div');
-    cardProduct.classList.add('cardProduct')
-    //console.log(product.productId)
-    cardProduct.innerHTML = `
+    console.log(productosArray)
+
+    productosArray.forEach(product => {
+
+        const cardProduct = document.createElement('div');
+        cardProduct.classList.add('cardProduct')
+        //console.log(product.productId)
+        cardProduct.innerHTML = `
                     <img src="${product.images[0].sizes[1].url}" class="productImage">
+                    <div> 
+                    <button class="plusBasketButton" id="${product.productId}">Añadir a la cesta</button>
                     <h3 class="productNaming">${product.brand}</h3>
                     <p class="productSpecification">${product.description}</p>
                     <p class="productPrice">${product.items[0].price.regular}</p>
-                    <button class="plusBasketButton" id="${product.productId}">Añadir a la Cesta</button>` // este botón debería de ejecutar la función añadir a la cesta
+                    </div>` // este botón debería de ejecutar la función añadir a la cesta
     sectionNews.appendChild(cardProduct)
   });
   //console.log(setionNews)
   actualizarBotonesAgregar();
 }
-
-
 
 
 function actualizarBotonesAgregar(){
@@ -98,4 +98,3 @@ function agregarAlCarrito(e) {
   console.log(productoAgregado)
 }
 
-console.log(productosEnCarrito)
