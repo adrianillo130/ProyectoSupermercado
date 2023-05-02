@@ -1,0 +1,53 @@
+
+.containernavbarPC{
+    display: flex;
+    justify-content: flex-start;
+    height: 20%;
+    background-color: aqua;
+}
+body{
+    max-width: 1080px;
+    margin: 0 auto;
+    
+}
+.cardProduct{
+    display: flex;
+    position: relative;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    box-shadow: 0 5px 10px #9CE0DB;
+    background-position: center;
+    justify-content: space-around;
+}
+
+h2{
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.productNaming{
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.productSpecification{
+    font-size: 20px;
+    color: gray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.productPrice{
+    color: red;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.plusBasketButton{
+    height: 20%;
+    padding: 2%;
+    border: none;
+    background-color: #9CE0DB;
+    color: #005954;
+    font-size: 20px;
+
+}
+.plusBasketButton:hover{
+background-color: #5dc1b9;
+}

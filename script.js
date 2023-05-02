@@ -26,7 +26,7 @@ const giveMeProducts = async () => {
     }
     })*/
 
-    let input = 'meat';
+    let input = 'cereals';
     const productsUrl = `https://api.kroger.com/v1/products?filter.term=${input}&filter.locationId=01400943`; // cambiar el term "milk" por el producto deseado (variable?)
     const accessToken = await giveMeAccessKey();
     const productsResponse = fetch(productsUrl, {
@@ -37,7 +37,6 @@ const giveMeProducts = async () => {
             "Content-Type": "application/json; charset=utf-8",
         },
     })
-<<<<<<< HEAD
       .then((response) => response.json())
       .then((dataApi) => {
         console.log(dataApi)
@@ -48,17 +47,8 @@ const giveMeProducts = async () => {
         console.error("Error:", error);
       });
   };
-=======
-        .then((response) => response.json())
-        .then((dataApi) => {
-            let productosArray = dataApi.data;
-            pintarCard(productosArray);
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-};
->>>>>>> b6c753cdb888488efd882e7d3a8f9e3aa46b287d
+
+
 
 giveMeProducts();
 
@@ -76,15 +66,18 @@ const pintarCard = productosArray => {
     const cardProduct = document.createElement('div');
     cardProduct.classList.add('cardProduct')
     cardProduct.innerHTML = `
+    
                     <img src="${product.images[0].sizes[1].url}" class="productImage">
+                    <div> 
+                    <button class="plusBasketButton" id="plusBasketButton">Añadir a la cesta</button>
                     <h3 class="productNaming">${product.brand}</h3>
                     <p class="productSpecification">${product.description}</p>
                     <p class="productPrice">${product.items[0].price.regular}</p>
-                    <button class="plusBasketButton" id="plusBasketButton">Añadir a la Cesta</button>` // este botón debería de ejecutar la función añadir a la cesta
+                    </div>` // este botón debería de ejecutar la función añadir a la cesta
     sectionNews.appendChild(cardProduct)
   });
   console.log(setionNews)
+  
 }
-
 
 
