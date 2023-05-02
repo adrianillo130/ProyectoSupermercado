@@ -69,15 +69,32 @@ const pintarCard = productosArray => {
         cardProduct.innerHTML = `
                     <img src="${product.images[0].sizes[1].url}" class="productImage">
                     <div> 
-                    <button class="plusBasketButton" id="plusBasketButton">Añadir a la cesta</button>
+                    <button class="plusBasketButton" id="${product.productId}">Añadir a la cesta</button>
                     <h3 class="productNaming">${product.brand}</h3>
                     <p class="productSpecification">${product.description}</p>
                     <p class="productPrice">${product.items[0].price.regular}</p>
                     </div>` // este botón debería de ejecutar la función añadir a la cesta
     sectionNews.appendChild(cardProduct)
   });
-  console.log(setionNews)
-  
+  //console.log(setionNews)
+  actualizarBotonesAgregar();
 }
 
+
+function actualizarBotonesAgregar(){
+  botonesAgregar = document.querySelectorAll('.plusBasketButton')
+
+  botonesAgregar.forEach(boton =>{
+    boton.addEventListener('click', agregarAlCarrito);
+  })
+}
+
+const productosEnCarrito = [];
+
+function agregarAlCarrito(e) {
+  const idButton = e.currentTarget.id
+  //console.log(idButton)
+  const productoAgregado = productosArray.find(productosArray=> productosArray.productId === idButton);
+  console.log(productoAgregado)
+}
 
