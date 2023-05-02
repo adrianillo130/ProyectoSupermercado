@@ -74,10 +74,10 @@ const pintarCard = productosArray => {
                     <p class="productSpecification">${product.description}</p>
                     <p class="productPrice">${product.items[0].price.regular}</p>
                     </div>` // este botón debería de ejecutar la función añadir a la cesta
-    sectionNews.appendChild(cardProduct)
-  });
-  console.log(setionNews)
-  
+        sectionNews.appendChild(cardProduct)
+    });
+    console.log(setionNews)
+
 }
 
 
