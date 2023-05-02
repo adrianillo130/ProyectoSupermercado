@@ -15,7 +15,7 @@ const giveMeAccessKey = async () => {
 
 
 // --------------------------ESTO SERÍA UNA FUNCIÓN? -----------------------------------------------------
-
+let productosArray = [];
 
 const giveMeProducts = async () => {
     /*esto es para que 
@@ -37,36 +37,36 @@ const giveMeProducts = async () => {
             "Content-Type": "application/json; charset=utf-8",
         },
     })
-      .then((response) => response.json())
-      .then((dataApi) => {
-        console.log(dataApi)
-        let productosArray = dataApi.data;
-        pintarCard(productosArray);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
-
-
+        .then((response) => response.json())
+        .then((dataApi) => {
+            productosArray = dataApi.data;
+            pintarCard(productosArray);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+};
 
 giveMeProducts();
 
 /*--------------PRUEBA DE PINTAR PRODUCTOS EN EL HTML------------------*/
 
 const pintarCard = productosArray => {
-  const setionNews = document.getElementById('sectionNews')
-  const h2News = document.createElement('h2')
-  h2News.innerHTML = 'Productos'
-  sectionNews.appendChild(h2News)
-  
-  console.log(productosArray)
-  
-  productosArray.forEach(product => {
-    const cardProduct = document.createElement('div');
-    cardProduct.classList.add('cardProduct')
-    cardProduct.innerHTML = `
-    
+    const sectionNews = document.getElementById('sectionNews')
+    const h2News = document.createElement('h2')
+    h2News.innerHTML = 'Novedades'
+    let buttonAdd = document.getElementById('plusBasketButton')
+    sectionNews.appendChild(h2News)
+    let botonesAgregar = document.querySelectorAll('.plusBasketButton')
+
+    console.log(productosArray)
+
+    productosArray.forEach(product => {
+
+        const cardProduct = document.createElement('div');
+        cardProduct.classList.add('cardProduct')
+        //console.log(product.productId)
+        cardProduct.innerHTML = `
                     <img src="${product.images[0].sizes[1].url}" class="productImage">
                     <div> 
                     <button class="plusBasketButton" id="plusBasketButton">Añadir a la cesta</button>
